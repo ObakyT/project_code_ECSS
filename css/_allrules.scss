@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+// This set of code is natural for all the browsers. It has to be positionned on the reset file for user agents.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+.b-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Effective on block elements only */
+/* @rule: all this classes must start with the 'b-' prefix. */
+// It has to be positionned on the utils file for positionning.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+@for $i from 1 through 9 {
+    .z#{$i}{
+        z-index: 1000 + $i;
+    }
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Ruling the positionning layouts for every elements */
+// It has to be positionned on the utils file for layout.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+@for $i from 1 through 6 {
+    h#{$i}{
+        line-height: 1.5;
+        font-size: 4.2 - (.6*$i) + em;
+        font-weight: 900 - ($i*100);
+    }
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Settlement of the heading sizes for all the necessary sub-blocks. */
+// It has to be positionned on the reset file for responsive.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+@mixin t-col-rule($width, $style, $color) {
+    column-rule: $width $style $color;
+}
+
+@for $i from 1 through 3 {
+    .t-col-#{$i}{
+        columns: $i;
+        column-fill: balance;
+        @include t-col-rule(2px, double, red)
+    }
+}
+
+.t-col-max{
+    column-span: all;
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Settlement of the text parts that needs useful stylings. */
+/* @rule: Make sure to make it responsive for all elements to make sure it is usable on smaller screens */
+/* @rule: all this classes must start with the 't-col-' prefix. */
+// It has to be positionned on the utils file for text.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+.bg-dark{
+    background-color: rgba(234, 237, 243, .8);
+    color: rgba(50, 49, 51, .7);
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Coloring rules and classes */
+/* @rule: all classes with 'bg-' prefix are set for the background objects. This will also need implementation of SASS*/
+// It has to be positionned on the VMF folder since it is corresponding to a variable input. This still needs to be managed by the chosen method of variables that we will be using.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

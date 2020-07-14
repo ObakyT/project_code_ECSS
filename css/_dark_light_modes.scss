@@ -1,0 +1,50 @@
+// It is set to work for prefferd mode from the user agents that can be set from the setting of the browser.
+// We are using a future other file with the colors managing system that has to be created seperatly but for the sake of this file we are first integrating it on the same instance
+
+// COLORS
+/*
+This first set of colors is the initial set for the text and background colors. It replace our last understanding of $light and $dark variables that appears to be obsolete in front of this model.
+*/
+$colors:(
+    base: #fefcfb,
+    text: #323133,
+    baseX: #f5f3f3,
+    textX: #3b3a3b
+);
+
+$colors-dark:(
+    base: map-get($colors, 'text'),
+    text: map-get($colors, 'base'),
+    baseX: map-get($colors, 'textX'),
+    textX: map-get($colors, 'baseX')
+);
+/*
+Since our code doesn't work relatively well with the mdeia-queries in SASS, we have to convert the following maps into css variables.
+We also set prefferencies for the dark mode regarding
+*/
+:root{
+    @each $name, $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+    --theme: 'light';
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        @each $name, $color in $colors-dark {
+            --color-#{$name}: #{$color};
+        }
+        --theme: 'dark';
+    }
+}
+
+/* We can also add this function to the color functions. It is a facilitator on how to get a colors directly from its css variable. */
+@function color($colorName){
+    @return var(--color-#{$colorName});
+};
+
+// TESTING (still advertized use for the future)
+body{
+    background-color: color('base');
+    color: color('text');
+}
