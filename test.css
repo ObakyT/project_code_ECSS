@@ -124,6 +124,25 @@ h6 {
           column-span: all;
 }
 
+.t-rotate-upright {
+  text-orientation: upright;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+}
+
+.t-trans-cap {
+  text-transform: capitalize;
+}
+
+.t-trans-up {
+  text-transform: uppercase;
+}
+
+.t-trans-low {
+  text-transform: lowercase;
+}
+
 /* Settlement of the text parts that needs useful stylings. */
 /* @rule: Make sure to make it responsive for all elements to make sure it is usable on smaller screens */
 /* @rule: all this classes must start with the 't-col-' prefix. */
@@ -134,35 +153,59 @@ h6 {
 
 /* Coloring rules and classes */
 /* @rule: all classes with 'bg-' prefix are set for the background objects. This will also need implementation of SASS*/
-/*
-This first set of colors is the initial set for the text and background colors. It replace our last understanding of $light and $dark variables that appears to be obsolete in front of this model.
-*/
-/*
-Since our code doesn't work relatively well with the mdeia-queries in SASS, we have to convert the following maps into css variables.
-We also set prefferencies for the dark mode regarding
-*/
-:root {
-  --color-base: #fefcfb;
-  --color-text: #323133;
-  --color-baseX: #f5f3f3;
-  --color-textX: #3b3a3b;
-  --theme: 'light';
+::-moz-selection {
+  background-color: #fff;
+  color: #000;
+}
+::selection {
+  background-color: #fff;
+  color: #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-base: #323133;
-    --color-text: #fefcfb;
-    --color-baseX: #3b3a3b;
-    --color-textX: #f5f3f3;
-    --theme: 'dark';
+/* Mouse selected elements */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #323133aa;
+  white-space: nowrap;
+  letter-spacing: .15em;
+  -webkit-animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+          animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 
-/* We can also add this function to the color functions. It is a facilitator on how to get a colors directly from its css variable. */
-body {
-  background-color: var(--color-base);
-  color: var(--color-text);
+/* The typewriter cursor effect */
+@-webkit-keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
 
 /* ----------- iPhone 4 and 4S ----------- */
@@ -462,5 +505,81 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+}
+
+html {
+  font-size: 17px;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: calc(17px + 3 * ((100vw - 768px) / 432));
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+/* This is not a definite version yet of this tool since we have other alternatives that might be better fitting to our cases. */
+input[type=file] {
+  opacity: 1;
+  width: .0001px;
+  height: .0001px;
+}
+
+.input-file {
+  display: inline-block;
+  border-radius: .4vw;
+  border: #32313388 solid .5px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-right: 3vw;
+  padding-left: .5vw;
+  max-width: 300px;
+  cursor: pointer;
+  position: relative;
+  /*
+
+    <label class="input-file">
+        <input type="file" name="" multiple>
+        <span>Choose File</span>
+        <br>
+        <div class="resp"></div>
+    </label>
+
+    */
+  /*
+    
+    // Input File response
+    $('input[type=file]').change( () => {
+        let path = $('input[type=file]').prop('value')
+        let filename = path.replace(/^.*\\/, "")
+        $('input[type=file]').siblings('.resp').html(filename)
+    });
+
+    */
+}
+
+.input-file:hover {
+  -webkit-box-shadow: #323133aa 0 0 1px inset;
+          box-shadow: #323133aa 0 0 1px inset;
+}
+
+.input-file .material-icons {
+  position: absolute;
+  top: 50%;
+  right: .5vw;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-left: #32313388 solid .5px;
+  padding-left: .3vw;
+}
+
+.input-file .resp {
+  font-size: 70%;
+  overflow: hidden;
 }
 /*# sourceMappingURL=test.css.map */

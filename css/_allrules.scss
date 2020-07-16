@@ -58,6 +58,24 @@
 .t-col-max{
     column-span: all;
 }
+
+.t-rotate-upright{
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+}
+
+$transform-text: (
+    cap: capitalize,
+    up: uppercase,
+    low: lowercase
+);
+
+@each $i,$l in $transform-text {
+    .t-trans-#{$i}{
+        text-transform: $l;
+    }
+}
+
 // ||
 // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 /* Settlement of the text parts that needs useful stylings. */
@@ -76,3 +94,33 @@
 /* @rule: all classes with 'bg-' prefix are set for the background objects. This will also need implementation of SASS*/
 // It has to be positionned on the VMF folder since it is corresponding to a variable input. This still needs to be managed by the chosen method of variables that we will be using.
 // ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+::selection{
+    background-color: #fff;
+    color: #000;
+}
+// ||
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+/* Mouse selected elements */
+// Make this element stand on the core changing file. It should contain all the specefic Theme related rules.
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+.typewriter{
+    overflow: hidden;
+    border-right: .15em solid #323133aa;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
