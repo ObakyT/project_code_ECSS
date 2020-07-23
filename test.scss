@@ -1,5 +1,10 @@
+@use 'css/v.1.0/VMF/var';
 @import 'css/allrules';
 // @import 'css/dark_light_modes';
 @import 'css/allbreakpoints';
 @import 'css/fluid_typography';
 @import 'css/inputs';
+
+head{
+    color: vark.$textColor;
+}
