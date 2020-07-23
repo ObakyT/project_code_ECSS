@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,QAAQ,CAAR,UAAQ;AACR,QAAQ,CAAR,WAAQ;AACR,QAAQ,CAAR,SAAQ",
-    "sources": [
-        "VMF.scss"
-    ],
-    "names": [],
-    "file": "VMF.css"
-}
