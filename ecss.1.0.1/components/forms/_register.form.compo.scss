@@ -2,10 +2,10 @@
 
 #register-form {
     box-shadow: RGBA('dark', .2) 0 0 5px;
-    width: 60%;
+    @extend .w5;
     height: 60vh;
     #left-side {
-        width: 50%;
+        @extend .w3;
         background-image: url('../img/join_us.jpg');
         background-blend-mode: screen;
         mix-blend-mode: screen;
@@ -30,13 +30,13 @@
         }
     }
     #right-side {
-        width: 50%;
+        @extend .w3;
         @include bg-color('light')
     }
 }
 
 #register-form-data{
-    width: 80%;
+    @extend .w5;
     p, & form > label{
         font-size: .7em;
         margin-bottom: 1vh;

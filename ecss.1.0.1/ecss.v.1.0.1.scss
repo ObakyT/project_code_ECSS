@@ -1,7 +1,8 @@
 @import 'VMF/VMF';
-@import 'media/prefers_color_scheme';
 @import 'utils/all.utils';
 @import './components/forms/register.form.compo';
+@import 'media/prefers_color_scheme';
+@import 'media/print';
 
 // general_settings
 html{

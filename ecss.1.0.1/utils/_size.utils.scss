@@ -1,0 +1,23 @@
+@import '../VMF/mix/grid.mix';
+
+@for $i from 1 through 6 {
+    .w#{$i}{    
+        @include screen('hand'){
+            @if $i/2 > 1 {
+                width: 100%;
+            } @else {
+                width: percentage($i/2);
+            }
+        }
+        @include screen('tab'){
+            @if $i/3 > 1 {
+                width: 100%;
+            } @else {
+                width: percentage($i/3);
+            }
+        }
+        @include screen('desk'){
+            width: percentage($i/6);
+        }
+    }
+}

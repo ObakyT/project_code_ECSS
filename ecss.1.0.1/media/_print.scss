@@ -1,0 +1,6 @@
+@media print {
+	a:after{
+		content: ' (' attr(href) ') ';
+		// We can also add a color when needed to make this elements relatively easy to be seen
+	}
+}

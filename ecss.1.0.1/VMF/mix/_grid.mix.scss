@@ -1,0 +1,28 @@
+@mixin screen($size) {
+    
+    @if $size == 'hand' {
+        @media only screen and (min-device-width: 320px), only screen and (orientation: portrait) and (min-device-width: 320px), only screen and (orientation: landscape) and (min-device-width: 480px) and (max-device-width: 812px){
+            @content;
+        }
+    } @else if $size == 'tab' {
+
+        @media only screen and (min-device-width: 768px), only screen and (orientation: portrait) and (min-device-width: 768px), only screen and (orientation: landscape) and (min-device-width: 1024px) and (max-device-width: 1336px){
+            @content;
+        }
+
+    } @else if $size == 'desk' {
+
+        @media only screen
+            and (min-device-width: 1200px){
+                @content;
+            }
+
+    } @else {
+        @media only screen
+        and (min-device-width: $size)
+        and (max-device-width: $size){
+            @content;
+        }
+    }
+
+}
