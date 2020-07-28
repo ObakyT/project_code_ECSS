@@ -1,0 +1,25 @@
+@import 'VMF/VMF';
+@import 'media/prefers_color_scheme';
+@import 'utils/all.utils';
+@import './components/forms/register.form.compo';
+
+// general_settings
+html{
+    font-family: 'Inter';
+}
+
+body{
+    @include bg-color('backgroundColor');
+    @include color('dark');
+}
+
+a{
+    color: #0043ee;
+    text-decoration: none;
+}
+
+@for $i from 1 through 6 {
+    h#{$i}{
+        font-size: 3.1 - ($i*.4) + em;
+    }
+}

@@ -1,0 +1,28 @@
+$place: (
+    cen: center,
+    start: flex-start,
+    end: flex-end,
+    btw: space-between,
+    ard: space-around,
+    even: space-evenly
+);
+
+.row, .col {
+    display: flex;
+    @each $var,$val in $place {
+        &.ver-#{$var}{
+            align-items: $val;
+        }
+        &.hor-#{$var}{
+            justify-content: $val;
+        }
+    }
+}
+
+.row{
+    flex-flow: row wrap;
+}
+
+.col{
+    flex-flow: column nowrap;
+}

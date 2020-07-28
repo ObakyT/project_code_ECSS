@@ -1,0 +1,11 @@
+@import '../VMF/VMF';
+
+@each $name, $value in $colors {
+    .#{$name}{
+        @include color(#{$name})
+    }
+
+    .bg-#{$name}{
+        @include bg-color(#{$name})
+    }
+}

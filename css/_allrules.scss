@@ -51,7 +51,6 @@
     .t-col-#{$i}{
         columns: $i;
         column-fill: balance;
-        @include t-col-rule(2px, double, red)
     }
 }
 

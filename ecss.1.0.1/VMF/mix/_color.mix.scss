@@ -1,0 +1,9 @@
+@mixin color($colorName) {
+    color: color2($colorName);
+    color: color($colorName);
+}
+
+@mixin bg-color($colorName) {
+    background-color: color2($colorName);
+    background-color: color($colorName);
+}

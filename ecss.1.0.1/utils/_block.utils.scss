@@ -1,0 +1,20 @@
+@import '../VMF/var/prefix.var';
+
+.#{$block}-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+$positions: (
+    abs: absolute,
+    rel: relative,
+    fix: fixed
+);
+
+@each $i,$e in $positions {
+    .#{$i}{
+        position: $e;
+    }
+}

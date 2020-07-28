@@ -1,0 +1,53 @@
+@import '../../VMF/VMF';
+
+#register-form {
+    box-shadow: RGBA('dark', .2) 0 0 5px;
+    width: 60%;
+    height: 60vh;
+    #left-side {
+        width: 50%;
+        background-image: url('../img/join_us.jpg');
+        background-blend-mode: screen;
+        mix-blend-mode: screen;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        #logo{
+            @extend .abs;
+            bottom: 2%;
+            left: 4%;
+            @extend .row;
+            @extend .ver-cen;
+            img{
+                height: 2em;
+            }
+            span{
+                font-family: 'Holtwood One SC';
+                margin: 0 1vw;
+                color: #fefcfb;
+                filter: contrast(.7);
+            }
+        }
+    }
+    #right-side {
+        width: 50%;
+        @include bg-color('light')
+    }
+}
+
+#register-form-data{
+    width: 80%;
+    p, & form > label{
+        font-size: .7em;
+        margin-bottom: 1vh;
+    }
+    input[type=submit]{
+        display: block;
+        @include bg-color('dark');
+        @include color('light');
+        font-weight: 600;
+        padding: 1vh 2vw;
+        border-radius: .2vw;
+        margin: 3vh auto;
+    }
+}

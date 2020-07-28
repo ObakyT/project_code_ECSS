@@ -1,0 +1,20 @@
+// Select the color ddirectly by name.
+@function color($colorName){
+    @return var(--color-#{$colorName});
+};
+
+@function color2($colorName){
+    @if var(--theme) == 'light' {
+        @return map-get($colors, $colorName);
+    } @else {
+        @if map-has-key($colors-dark, $colorName) {
+            @return map-get($colors-dark, $colorName);
+        } @else {
+            @return map-get($colors, $colorName);
+        }
+    }
+}
+
+@function RGBA($colorName, $opacity){
+    @return rgba(color2($colorName), $opacity)
+}
